@@ -221,6 +221,7 @@ type Task struct {
 	CurrentState       string             // is this task available, hidden, waiting or closed?
 	AssignmentCriteria AssignmentCriteria // the criteria used when assigning valid assets for this task
 	CompletionCriteria CompletionCriteria // the criteria used to mark an asset as 'completed' for this task
+	Metadata           map[string]interface{} // optional, any additional info
 }
 
 // FacetTerm maps Elasticsearch term + count from a faceted query.
