@@ -28,9 +28,9 @@ Download the [latest release](https://github.com/nytlabs/hive/releases), unzip a
 This method will allow you to hack on the `hive` source code. You'll need `go` installed and a working environment for it ($GOPATH, etc).
 
 ```
-mkdir -p $GOPATH/src/github.com/neso
-cd $GOPATH/src/github.com/neso
-git clone git@github.com:neso/hive.git
+mkdir -p $GOPATH/src/github.com/neso-io
+cd $GOPATH/src/github.com/neso-io
+git clone git@github.com:neso-io/hive.git
 cd hive
 make
 ```
