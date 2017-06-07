@@ -1694,6 +1694,9 @@ func (s *Server) FindProjects(p Params) (projects []Project, m meta, err error) 
 			if err != nil {
 				return
 			}
+
+			s.ActiveProjectId = project.Id
+
 			project.AssetCount, _ = s.Count("assets")
 			project.UserCount, _ = s.Count("users")
 			project.TaskCount, _ = s.Count("tasks")
