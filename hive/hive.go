@@ -683,11 +683,26 @@ func (s *Server) AdminAssignmentsHandler(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
+	user := defaultQuery(queryParams, "user", "");
+
+	var userAssignments []Assignment
+
+	for _, element := range assignments {
+		if element.User == user {
+			userAssignments = append(userAssignments, element)
+		}
+	}
+
 	// format the json response
+	if user != "" {
+		assignments = userAssignments;
+	}
+
 	assignmentsResponse := &assignmentsResponse{
 		Assignments: assignments,
 		Meta:        m,
 	}
+
 	assignmentsJson, err := json.Marshal(assignmentsResponse)
 
 	if err != nil {
@@ -3476,6 +3491,7 @@ func (s *Server) Run() {
 
 	// GET /admin/projects/{project_id}/assignments?task={task_id}&state={state}
 	// GET /admin/projects/{project_id}/assignments?task={task_id}&state={state}&from=from&size=size
+	// GET /admin/projects/{project_id}/assignments?task={task_id}&state={state}&user={user}
 	r.HandleFunc("/admin/projects/{project_id}/assignments", s.AdminAssignmentsHandler)
 
 	// GET /projects/{project_id}/tasks/{task_id} - returns task information

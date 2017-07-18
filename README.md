@@ -518,6 +518,7 @@ Finally, a list of all the API actions.
 * **GET** /admin/projects/{project_id}/users/{user_id} - returns a single user in this project
 * **GET** /admin/projects/{project_id}/assignments?task={task_id}&state={state}
 * **GET** /admin/projects/{project_id}/assignments?task={task_id}&state={state}&from=from&size=size
+* **GET** /admin/projects/{project_id}/assignments?task={task_id}&state={state}&user={user}
 * **GET** /projects/{project_id}/tasks/{task_id} - returns task information
 * **GET** /projects/{project_id}/tasks/{task_id}/assignments - returns a new assignment for the given task + current user
 * **POST** /projects/{project_id}/tasks/{task_id}/assignments - submit assignment (contribute, fill in form, etc)
